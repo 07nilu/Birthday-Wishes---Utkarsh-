@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Utkarsh!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <div class="video-background" >
+        <video autoplay muted loop>
+            <source src="birthday_background.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="overlay"></div>
+    <div class="confetti"></div>
+
+    <div class="container">
+        <div class="card">
+            <h1>🎉 Happy Birthday, <span>Utkarsh!</span> 🎂</h1>
+            <img src="Assets/image1.jpg" alt="Birthday Boy" class="birthday-cake">
+            <p>🎈 Wishing you a day filled with Love, Laughter and Endless Joy. You are not just another year older; you are another year wiser and more fabulous! 🎁</p>
+            <button onclick="playMusic()">🎵 Play Birthday Song 🎵</button>
+            <button onclick="changeTheme()">Change Theme</button>
+        </div>
+
+        <div class="gallery">
+            <h2>Memorable Moments</h2>
+            <div class="gallery-grid">
+                <img src="Assets/buddy1.jpg" alt="Photo 1">
+                <img src="Assets/buddy6.png" alt="Photo 2">
+                <img src="Assets/image5.jpg" alt="Photo 3">
+                <img src="Assets/image3.jpg" alt="Photo 4">
+                <img src="Assets/image2.jpg" alt="Photo 5">
+                <img src="Assets/image6.jpg" alt="Photo 6">
+            </div>
+        </div>
+
+        <div class="quote-section">
+            <h2>Birthday Quotes</h2>
+            <blockquote>
+                "Count your age by Friends, not years. Count your life by Smiles, not Tears." - <span class="name">Nilesh Patel</span>
+            </blockquote>
+            <blockquote>
+                "Birthdays are nature's way of telling us to eat more cake." - <span class="name">Nilesh Patel</span>
+            </blockquote>
+        </div>
+
+        <footer>
+            <p>Made with ❤️ by <span class="name">Nilesh!</span></p>
+            <p>Connect with me:</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=100009884078029" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/07nilu_/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/07nilu" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/07nilu/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </footer>
+    </div>
+    
+    <audio id="birthdaySong" src="Assets/bday_song.mp3" type="audio/mpeg"></audio>
+    
+    <script>
+        function playMusic() {
+            document.getElementById('birthdaySong').play();
+        }
+
+        // Theme Changer
+        const themes = [
+            {
+                '--primary-color': '#ff4081',
+                '--secondary-color': '#ffe4e1',         
+                '--background-color': '#ffecd1'
+            },
+            {
+                // '--primary-color': '#4caf50',
+                // '--secondary-color': '#e8f5e9',
+                // '--background-color': '#c8e6c9'
+                '--primary-color': '#15B5B0',
+                '--secondary-color': '#FADCD9',
+                // '--background-color': '#D3BBDD'
+                '--background-color': '#D4F1F4'
+            },
+            {
+                '--primary-color': '#3f51b5',
+                '--secondary-color': '#e8eaf6',
+                '--background-color': '#c5cae9'
+            },
+        ];
+
+        let currentTheme = 0;
+
+        function changeTheme() {
+            currentTheme = (currentTheme + 1) % themes.length;
+            const theme = themes[currentTheme];
+            Object.keys(theme).forEach(variable => {
+                document.documentElement.style.setProperty(variable, theme[variable]);
+            });
+        }
+    </script>
+</body>
+</html>
